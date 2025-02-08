@@ -1,13 +1,12 @@
-・devcontainer.jsonでazure cliインストール
-	"name": "Python 3",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/python:1-3.12-bullseye",
-	"features": {
-		"ghcr.io/devcontainers/features/aws-cli:1": {},
-		"azure-cli": "latest"
-	}
 
 ・Terraformをインストール
+tfenvでインストール
+brew install tfenv
+tfenv list-remote
+tfenv install 1.10.5
+tfenv list
+tfenv use 1.10.5
+
 https://qiita.com/broccoli07/items/b059487bab0cdc583f26
 $ wget https://releases.hashicorp.com/terraform/1.7.3/terraform_1.7.3_linux_amd64.zip
 $ unzip terraform_1.7.3_linux_amd64.zip
@@ -21,6 +20,7 @@ az account list
 az account set --subscription "XXXXX"
 
 ・Terrformコマンド
+terraform -v
 terraform init
 #構文チェック
 terraform validate
