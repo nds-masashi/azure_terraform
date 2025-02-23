@@ -52,20 +52,20 @@ resource "azurerm_network_security_group" "my_nsg" {
 
 # モジュールを使ってVM1
 module "vm_instance_1" {
-  source = "./modules"
-  name = "win01-jp-vm"
-  location = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
-  subnet_id = azurerm_subnet.my_subnet.id
+  source                    = "./modules"
+  name                      = "win01-jp-vm"
+  location                  = azurerm_resource_group.rg.location
+  resource_group_name       = azurerm_resource_group.rg.name
+  subnet_id                 = azurerm_subnet.my_subnet.id
   network_security_group_id = azurerm_network_security_group.my_nsg.id
 }
 
 # モジュールを使ってVM2
 module "vm_instance_2" {
-  source = "./modules"
-  name = "win02-jp-vm"
-  location = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
-  subnet_id = azurerm_subnet.my_subnet.id
+  source                    = "./modules"
+  name                      = "win02-jp-vm"
+  location                  = azurerm_resource_group.rg.location
+  resource_group_name       = azurerm_resource_group.rg.name
+  subnet_id                 = azurerm_subnet.my_subnet.id
   network_security_group_id = azurerm_network_security_group.my_nsg.id
 }

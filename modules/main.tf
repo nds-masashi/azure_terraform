@@ -1,8 +1,8 @@
-variable name {}
-variable location {}
-variable resource_group_name {}
-variable subnet_id {}
-variable network_security_group_id {}
+variable "name" {}
+variable "location" {}
+variable "resource_group_name" {}
+variable "subnet_id" {}
+variable "network_security_group_id" {}
 
 # Password
 resource "random_password" "password" {
@@ -86,7 +86,7 @@ resource "azurerm_windows_virtual_machine" "vm" {
 
   boot_diagnostics {
     storage_account_uri = azurerm_storage_account.my_storage_account.primary_blob_endpoint
-  }  
+  }
 }
 
 #Install IIS web server to the virtual machine
