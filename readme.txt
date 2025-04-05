@@ -20,6 +20,8 @@ az account list
 az account set --subscription "XXXXX"
 
 ・Terrformコマンド
+envs/dev 配下で以下のコマンド
+
 terraform -v
 terraform init
 #構文チェック
@@ -30,3 +32,18 @@ terraform plan
 terraform apply
 #削除
 terraform destroy
+
+
+デプロイ時間
+storage 1分ほど
+vm 2分ほど
+
+-----
+terraform fmt --recursive
+terraform init --upgrade
+terraform [plan|apply|destroy] -target=module.[モジュール名]
+terraform apply -target=module.base
+
+-----
+az vm image list --output table
+az vm image list --architecture x64 --publisher MicrosoftWindowsServer --all --output table
