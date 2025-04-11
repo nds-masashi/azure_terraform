@@ -16,7 +16,7 @@ resource "azurerm_windows_virtual_machine" "vm" {
   location              = var.location
   resource_group_name   = var.resource_group_name
   network_interface_ids = [azurerm_network_interface.my_nic.id]
-  size                  = "Standard_DS1_v2"
+  size                  = "Standard_DS3_v2" #"Standard_DS1_v2" $0.2 "Standard_DS3_v2" $0.5
 
   os_disk {
     name                 = "${var.prefix}-myOsDisk"
@@ -50,4 +50,20 @@ resource "azurerm_windows_virtual_machine" "vm" {
 #       "commandToExecute": "powershell -ExecutionPolicy Unrestricted Install-WindowsFeature -Name Web-Server -IncludeAllSubFeature -IncludeManagementTools"
 #     }
 #   SETTINGS
+# }
+
+# Auto shutdown
+# resource "azurerm_dev_test_global_vm_shutdown_schedule" "vm" {
+#   virtual_machine_id = azurerm_windows_virtual_machine.vm.id
+#   location           = var.resource_group_name
+#   enabled            = true
+
+#   daily_recurrence_time = "1900"
+#   timezone              = "Tokyo Standard Time"
+
+#   notification_settings {
+#     enabled         = true
+#     time_in_minutes = "60"
+#     webhook_url     = "https://sample-webhook-url.example.com"
+#   }
 # }
