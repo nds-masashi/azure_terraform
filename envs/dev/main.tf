@@ -1,3 +1,5 @@
+variable "ignore_ip" {}
+
 // Base
 module "base" {
   source                  = "../../modules/base"
@@ -13,6 +15,7 @@ module "vm1" {
   resource_group_name = module.base.resource_group_name
   subnet_id           = module.base.my_subnet_id
   public              = true
+  ignore_ip           = var.ignore_ip
 }
 
 # VM2
@@ -22,4 +25,5 @@ module "vm1" {
 #   location            = module.base.resource_group_location
 #   resource_group_name = module.base.resource_group_name
 #   subnet_id           = module.base.my_subnet_id
+#   ignore_ip           = var.ignore_ip
 # }

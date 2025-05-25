@@ -6,3 +6,4 @@ variable "public" {
     type = bool
     default = false
 }
+variable "ignore_ip" {}

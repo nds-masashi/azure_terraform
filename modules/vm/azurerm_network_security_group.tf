@@ -12,7 +12,7 @@ resource "azurerm_network_security_group" "my_nsg" {
     protocol                   = "*"
     source_port_range          = "*"
     destination_port_range     = "3389"
-    source_address_prefix      = "*"
+    source_address_prefix      = var.ignore_ip
     destination_address_prefix = "*"
   }
   security_rule {
