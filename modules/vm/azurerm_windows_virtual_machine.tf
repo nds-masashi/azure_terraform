@@ -25,10 +25,17 @@ resource "azurerm_windows_virtual_machine" "vm" {
     storage_account_type = "Premium_LRS"
   }
 
+  # source_image_reference {
+  #   publisher = "MicrosoftWindowsServer"
+  #   offer     = "WindowsServer"
+  #   sku       = "2022-datacenter-azure-edition"
+  #   version   = "latest"
+  # }
+
   source_image_reference {
-    publisher = "MicrosoftWindowsServer"
-    offer     = "WindowsServer"
-    sku       = "2022-datacenter-azure-edition"
+    publisher = "microsoftwindowsdesktop"
+    offer     = "windows-11"
+    sku       = "win11-22h2-entn"
     version   = "latest"
   }
 
