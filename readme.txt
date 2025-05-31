@@ -45,5 +45,13 @@ terraform [plan|apply|destroy] -target=module.[モジュール名]
 terraform apply -target=module.base
 
 -----
+VM一覧 (--all追加すると遅いので要注意)
 az vm image list --output table
 az vm image list --architecture x64 --publisher MicrosoftWindowsServer --all --output table
+az vm image list --architecture x64 --publisher RedHat --output table
+az vm image list --architecture x64 --publisher Almalinux --all --output table
+
+-----
+https://zenn.dev/gatabutsu/articles/0737b817cda5a6
+日本語化し、イメージを作成しておけば
+日本語から作成可能
