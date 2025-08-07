@@ -34,6 +34,12 @@ terraform apply
 terraform destroy
 
 
+#tfstateだけ更新
+terraform refresh
+terraform output -raw key_data
+jq -r .resources[2].instances[0].attributes.output.value.privateKey terraform.tfstate > key.pem
+
+
 デプロイ時間
 storage 1分ほど
 vm 2分ほど
