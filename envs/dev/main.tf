@@ -12,6 +12,15 @@ variable "my_subnet_id" {}
 #   prefix                  = "work-vm"
 # }
 
+// SQL
+module "sql" {
+  source              = "../../modules/sql"
+  prefix              = "work-sql"
+  location            = var.resource_group_location
+  resource_group_name = var.resource_group_name #module.base.resource_group_name
+  subnet_id           = var.my_subnet_id        #module.base.my_subnet_id
+}
+
 // VM1 windows
 module "vm1" {
   source              = "../../modules/vm_windows"
@@ -23,15 +32,15 @@ module "vm1" {
   ignore_ip           = var.ignore_ip
 }
 
-module "vm2" {
-  source              = "../../modules/vm_windows"
-  prefix              = "work4-vm"
-  location            = var.resource_group_location
-  resource_group_name = var.resource_group_name #module.base.resource_group_name
-  subnet_id           = var.my_subnet_id        #module.base.my_subnet_id
-  public              = false
-  ignore_ip           = var.ignore_ip
-}
+# module "vm2" {
+#   source              = "../../modules/vm_windows"
+#   prefix              = "work4-vm"
+#   location            = var.resource_group_location
+#   resource_group_name = var.resource_group_name #module.base.resource_group_name
+#   subnet_id           = var.my_subnet_id        #module.base.my_subnet_id
+#   public              = false
+#   ignore_ip           = var.ignore_ip
+# }
 
 # VM2 linux
 # module "vm2" {

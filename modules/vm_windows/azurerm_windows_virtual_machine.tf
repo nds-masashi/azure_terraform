@@ -25,10 +25,18 @@ resource "azurerm_windows_virtual_machine" "vm" {
     storage_account_type = "Premium_LRS"
   }
 
+  # source_image_reference {
+  #   publisher = "MicrosoftWindowsServer"
+  #   offer     = "WindowsServer"
+  #   sku       = "2022-datacenter-azure-edition"
+  #   version   = "latest"
+  # }
+
+  #デプロイに10分程度かかる
   source_image_reference {
-    publisher = "MicrosoftWindowsServer"
-    offer     = "WindowsServer"
-    sku       = "2022-datacenter-azure-edition"
+    publisher = "microsoftvisualstudio"
+    offer     = "visualstudioplustools"
+    sku       = "vs-2022-pro-general-win10-m365-gen2"
     version   = "latest"
   }
 
@@ -42,6 +50,9 @@ resource "azurerm_windows_virtual_machine" "vm" {
   boot_diagnostics {
     storage_account_uri = azurerm_storage_account.my_storage_account.primary_blob_endpoint
   }
+
+  # Custom script extension
+  provision_vm_agent = true
 }
 
 # Custom powershell
