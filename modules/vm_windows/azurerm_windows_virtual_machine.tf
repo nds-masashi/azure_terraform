@@ -17,12 +17,12 @@ resource "azurerm_windows_virtual_machine" "vm" {
   location              = var.location
   resource_group_name   = var.resource_group_name
   network_interface_ids = [azurerm_network_interface.my_nic.id]
-  size                  = "Standard_DS3_v2" #"Standard_DS1_v2" $0.2 "Standard_DS3_v2" $0.5
+  size                  = "Standard_D4d_v5" #"Standard_D2_v2" $0.2 "Standard_D4d_v5" $0.4 "Standard_D4ds_v6" $0.5
 
   os_disk {
     name                 = "${var.prefix}-myOsDisk"
     caching              = "ReadWrite"
-    storage_account_type = "Premium_LRS"
+    storage_account_type = "Standard_LRS" # Premium_LRS
   }
 
   # source_image_reference {
@@ -32,11 +32,11 @@ resource "azurerm_windows_virtual_machine" "vm" {
   #   version   = "latest"
   # }
 
-  #デプロイに10分程度かかる
+  #デプロイに6-10分程度かかる
   source_image_reference {
     publisher = "microsoftvisualstudio"
     offer     = "visualstudioplustools"
-    sku       = "vs-2022-pro-general-win10-m365-gen2"
+    sku       = "vs-2022-pro-general-win11-m365-gen2"
     version   = "latest"
   }
 
