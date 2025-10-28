@@ -25,21 +25,24 @@ resource "azurerm_windows_virtual_machine" "vm" {
     storage_account_type = "Standard_LRS" # Premium_LRS
   }
 
-  # source_image_reference {
-  #   publisher = "MicrosoftWindowsServer"
-  #   offer     = "WindowsServer"
-  #   sku       = "2022-datacenter-azure-edition"
-  #   version   = "latest"
-  # }
-
-  #デプロイに6-10分程度かかる
+  # Windows Server 2022
   source_image_reference {
-    publisher = "microsoftvisualstudio"
-    offer     = "visualstudioplustools"
-    sku       = "vs-2022-pro-general-win11-m365-gen2"
+    publisher = "MicrosoftWindowsServer"
+    offer     = "WindowsServer"
+    sku       = "2022-datacenter-azure-edition"
     version   = "latest"
   }
 
+  # Windows 11 VS2022
+  # デプロイに6-10分程度かかる
+  # source_image_reference {
+  #   publisher = "microsoftvisualstudio"
+  #   offer     = "visualstudioplustools"
+  #   sku       = "vs-2022-pro-general-win11-m365-gen2"
+  #   version   = "latest"
+  # }
+
+  # Windows 11
   # source_image_reference {
   #   publisher = "microsoftwindowsdesktop"
   #   offer     = "windows-11"
